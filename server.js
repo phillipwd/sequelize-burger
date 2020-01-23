@@ -1,6 +1,6 @@
 var express = require("express");
-
 var PORT = process.env.PORT || 8080;
+var db = require("./models");
 
 var app = express();
 
@@ -18,6 +18,8 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
-});
+db.sequelize.sync().then(function(){//this line added for sequelize
+  app.listen(PORT, function() {
+    console.log("Server listening on: http://localhost:" + PORT);
+  });
+})
