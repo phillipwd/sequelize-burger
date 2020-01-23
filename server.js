@@ -18,7 +18,7 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-db.sequelize.sync().then(function(){//this line added for sequelize
+db.sequelize.sync({force:false}).then(function(){//this line added for sequelize
   app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
   });

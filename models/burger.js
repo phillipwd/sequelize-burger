@@ -31,8 +31,7 @@
       devour: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: "false"
-      }
+        defaultValue: false      }
     });
     return Burger;
   };
